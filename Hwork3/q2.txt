@@ -1,0 +1,118 @@
+Script started on 2025-02-19 04:43:23+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="123" LINES="22"]
+[0;32m@erikalevie [0m➜ [1;34m/workspaces/csci-330-homeworks-erikalevie/Homework3 [0;36m([1;31mmain[0;36m) [0m$ sbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "mergesort.lisp")
+
+; file: /workspaces/csci-330-homeworks-erikalevie/Homework3/mergesort.lisp
+; in: DEFUN MERGE
+;     (MERGE (CDR LST1) LST2)
+; 
+; caught WARNING:
+;   The function was called with two arguments, but wants at least four.
+
+;     (MERGE LST1 (CDR LST2))
+; 
+; caught WARNING:
+;   The function was called with two arguments, but wants at least four.
+
+;     (DEFUN MERGE (LST1 LST2)
+;       (COND ((NULL LST1) LST2) ((NULL LST2) LST1)
+;             ((<= (CAR LST1) (CAR LST2)) (CONS (CAR LST1) (MERGE # LST2)))
+;             (T (CONS (CAR LST2) (MERGE LST1 #)))))
+; 
+; caught STYLE-WARNING:
+;   The definition has no &KEY arguments, but the proclamation did.
+; 
+; caught STYLE-WARNING:
+;   The definition has two args, but the proclamation has four.
+; 
+; compilation unit finished
+;   caught 2 WARNING conditions
+;   caught 2 STYLE-WARNING conditions
+WARNING: redefining COMMON-LISP:MERGE in DEFUN
+While evaluating the form starting at line 25, column 0
+  of #P"/workspaces/csci-330-homeworks-erikalevie/Homework3/mergesort.lisp":
+
+debugger invoked on a SYMBOL-PACKAGE-LOCKED-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Lock on package COMMON-LISP violated when setting fdefinition of MERGE while
+  in package COMMON-LISP-USER.
+See also:
+  The SBCL Manual, Node "Package Locks"
+  The ANSI Standard, Section 11.1.2.1.2
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE      ] Ignore the package lock.
+  1: [IGNORE-ALL    ] Ignore all package locks in the context of this operation.
+  2: [UNLOCK-PACKAGE] Unlock the package.
+  3: [RETRY         ] Retry EVAL of current toplevel form.
+  4:                  Ignore error and continue loading file "/workspaces/csci-330-homeworks-erikalevie/Homework3/mergesort.lisp".
+  5: [ABORT         ] Abort loading file "/workspaces/csci-330-homeworks-erikalevie/Homework3/mergesort.lisp".
+  6:                  Exit debugger, returning to top level.
+
+(PACKAGE-LOCK-VIOLATION #<PACKAGE "COMMON-LISP"> :SYMBOL MERGE :FORMAT-CONTROL "setting fdefinition of ~A" :FORMAT-ARGUMENTS (MERGE))
+0] 0
+
+; file: /workspaces/csci-330-homeworks-erikalevie/Homework3/mergesort.lisp
+; in: DEFUN MERGESORT
+;     (MERGE (MERGESORT LEFT) (MERGESORT RIGHT))
+; 
+; caught WARNING:
+;   The function was called with two arguments, but wants at least four.
+; 
+; compilation unit finished
+;   caught 1 WARNING condition
+
+(1 2 3 4 5 6 7 8) 
+T
+* (mergesort '(5 3 8 1 2 7 4 6))
+
+(1 2 3 4 5 6 7 8)
+* exit
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable EXIT is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV EXIT #<NULL-LEXENV>)
+0] quit
+; in:
+;     (PROGN QUIT)
+; 
+; caught WARNING:
+;   undefined variable: QUIT
+; 
+; compilation unit finished
+;   Undefined variable:
+;     QUIT
+;   caught 1 WARNING condition
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable QUIT is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Reduce debugger level (to debug level 1).
+  1:         Exit debugger, returning to top level.
+
+((LAMBDA (#:G389)) #<unused argument>)
+   source: (PROGN QUIT)
+0[2] (quit)
+[0;32m@erikalevie [0m➜ [1;34m/workspaces/csci-330-homeworks-erikalevie/Homework3 [0;36m([1;31mmain[0;36m) [0m$ exit
+
+Script done on 2025-02-19 04:45:03+00:00 [COMMAND_EXIT_CODE="0"]
